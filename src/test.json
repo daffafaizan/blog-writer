@@ -1,0 +1,47 @@
+{
+  "title": "feat: initial commit",
+  "slug": "feat-initial-commit-daffa",
+  "summary": "A start — there's a first for everything",
+  "content": "**The journey begins** — Hello, world! First of all, I would like to state that this blog post is the first of many, hopefully!\n\n<br>After a long time of procrast— I mean planning, I have finally managed to create a blog. My own platform where I'm planning on sharing my dev journey; a diary if you will. Of course I didn't make this blog out of FOMO or to ease my way to get a job or anything...*cough*\n\n<br>Real talk, I'm grateful to have finished this blog. Not only that it made me productive, it tested my knowledge regarding front-end development. Additionally, it helped me learn alot of new things, especially how back-end code works. I have managed to learn Go and Gin in a short amount of time and created this blog on my own. An achievement on its own, in my opinion.\n\n<br>Regardless, I would like to invite you all to try making a blog on your own. I would encourage you to try writing, be it your thoughts, an experience you had, or a billion dollar idea. It's fun and relaxing in some way. Enough of me though, thank you all for reading!\n\n<br>Now, a snippet of code using the language that made this blog possible.\n\n```go\npackage main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}\n```",
+  "createdAt": "2024-01-11T10:08:06.339Z",
+  "postAuthor": "Daffa",
+  "tags": ["Projects", "NextJS", "Go", "Gin", "MongoDB", "AWS"],
+  "comments": [
+    {
+      "content": "Hi guys! You can try commenting on this post. It's alright, just keep the name field blank if you don't want to state your name. You will be Anonymous. Cheers!",
+      "createdAt": "2024-01-11T10:10:35.706Z",
+      "commentAuthor": "Daffa",
+      "_id": "659fbe9b9f4097fcfd8b1ff9",
+      "postId": "659fbe069f4097fcfd8b1ff7"
+    },
+    {
+      "content": "I forgot to mention one thing, you can't delete your comments. So be wary of what you send!",
+      "createdAt": "2024-01-11T14:16:19.642Z",
+      "commentAuthor": "Daffa",
+      "_id": "659ff833dcd041db8b9c83c5",
+      "postId": "659fbe069f4097fcfd8b1ff7"
+    },
+    {
+      "content": "hello world",
+      "createdAt": "2024-01-11T14:17:33.112Z",
+      "commentAuthor": "Anonymous",
+      "_id": "659ff87cdcd041db8b9c83c7",
+      "postId": "659fbe069f4097fcfd8b1ff7"
+    },
+    {
+      "content": "Hello :)",
+      "createdAt": "2024-01-11T14:43:32.335Z",
+      "commentAuthor": "Baya",
+      "_id": "659ffe94dcd041db8b9c83c9",
+      "postId": "659fbe069f4097fcfd8b1ff7"
+    },
+    {
+      "content": "Nice blog, wishing you nothing but the best!",
+      "createdAt": "2024-01-13T19:10:45.583Z",
+      "commentAuthor": "Fattan",
+      "_id": "65a2e035dcd041db8b9c83cd",
+      "postId": "659fbe069f4097fcfd8b1ff7"
+    }
+  ],
+  "_id": "659fbe069f4097fcfd8b1ff7"
+}
