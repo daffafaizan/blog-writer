@@ -18,6 +18,13 @@ export default function Blog() {
   const [content, setContent] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
+  function closeModal() {
+    setIsOpen(false);
+  }
+  function openModal() {
+    setIsOpen(true);
+  }
   const handleTags = (e: any) => {
     let tags = e.currentTarget.value;
     setTags(tags.split(" "));
@@ -43,27 +50,28 @@ export default function Blog() {
   };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    const blogData = {
+    const post = {
       title,
       postAuthor,
       summary,
       tags,
       content,
+    };
+    const req = {
       username,
       password,
+      post,
     };
-    const res = await axios.post(url, blogData);
-    console.log(res);
-    console.log(res.status);
+    const res = await axios.post(url, req);
     if (res.status == 200) {
       emptyForm();
+      closeModal();
+    } else {
+      console.error("Error");
     }
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full h-full bg-[#c3c3c3] flex flex-col gap-2 px-2 py-6"
-    >
+    <form className="w-full h-full bg-[#c3c3c3] flex flex-col gap-2 px-2 py-6">
       <div className="w-full flex flex-row gap-2">
         <input
           placeholder="Title"
@@ -129,13 +137,21 @@ export default function Blog() {
         </Markdown>
       </div>
       {inputCheck() ? (
-        <Auth setUsername={setUsername} setPassword={setPassword} />
+        <Auth
+          handleSubmit={handleSubmit}
+          setUsername={setUsername}
+          setPassword={setPassword}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          openModal={openModal}
+          closeModal={closeModal}
+        />
       ) : (
         <button
           disabled
-          className="w-full bg-transparent hover:bg-[#010081] hover:text-white hover:border-t-black hover:border-l-black hover:border-b-white hover:border-r-white border-2 border-t-white border-l-white border-b-black border-r-black rounded-sm mt-1 py-2"
+          className="w-full bg-transparent text-[#818181] border-2 border-t-white border-l-white border-b-black border-r-black rounded-sm mt-1 py-2"
         >
-          Send &gt;
+          Continue &gt;
         </button>
       )}
     </form>

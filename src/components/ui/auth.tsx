@@ -6,21 +6,22 @@ import Keys from "../../../public/keys98.png";
 import Image from "next/image";
 
 export default function Auth({
+  handleSubmit,
   setUsername,
   setPassword,
+  isOpen,
+  setIsOpen,
+  closeModal,
+  openModal,
 }: {
+  handleSubmit: any;
   setUsername: any;
   setPassword: any;
+  isOpen: any;
+  setIsOpen: any;
+  closeModal: any;
+  openModal: any;
 }) {
-  let [isOpen, setIsOpen] = useState(false);
-
-  function closeModal() {
-    setIsOpen(false);
-  }
-
-  function openModal() {
-    setIsOpen(true);
-  }
   return (
     <>
       <div className="flex items-center justify-center">
@@ -86,6 +87,7 @@ export default function Auth({
                     />
                     <button
                       type="submit"
+                      onClick={(e) => handleSubmit(e)}
                       className="w-full bg-transparent hover:bg-[#010081] hover:text-white hover:border-t-black hover:border-l-black hover:border-b-white hover:border-r-white border-2 border-t-white border-l-white border-b-black border-r-black rounded-sm mt-2 py-2"
                     >
                       Create
