@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Keys from "../../../public/keys98.png";
 import Image from "next/image";
@@ -10,7 +10,6 @@ export default function Auth({
   setUsername,
   setPassword,
   isOpen,
-  setIsOpen,
   closeModal,
   openModal,
 }: {
