@@ -43,20 +43,30 @@ export default function Blog() {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="w-full h-full flex flex-col gap-2">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full h-full bg-[#c3c3c3] flex flex-col gap-2 px-2 py-6"
+    >
       <div className="w-full flex flex-row gap-2">
         <input
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.currentTarget.value)}
-          className="w-1/2 border-2 border-gray-100 rounded-sm p-2"
+          className="w-2/4 border-2 border-t-black border-l-black focus:outline-none rounded-sm p-2"
           required
         />
         <input
           placeholder="Author"
           value={postAuthor}
           onChange={(e) => setPostAuthor(e.currentTarget.value)}
-          className="w-1/2 border-2 border-gray-100 rounded-sm p-2"
+          className="w-1/4 border-2 border-t-black border-l-black focus:outline-none rounded-sm p-2"
+          required
+        />
+        <input
+          placeholder="Tags"
+          value={tags}
+          onChange={(e) => handleTags(e)}
+          className="w-1/4 border-2 border-t-black border-l-black focus:outline-none rounded-sm p-2"
           required
         />
       </div>
@@ -64,26 +74,19 @@ export default function Blog() {
         placeholder="Summary"
         value={summary}
         onChange={(e) => setSummary(e.currentTarget.value)}
-        className="h-32 border-2 border-gray-100 rounded-sm p-2"
-        required
-      />
-      <input
-        placeholder="Tags"
-        value={tags}
-        onChange={(e) => handleTags(e)}
-        className="border-2 border-gray-100 rounded-sm p-2"
+        className="h-32 border-2 border-t-black border-l-black focus:outline-none rounded-sm p-2"
         required
       />
       <div className="w-full h-full flex flex-row gap-2">
         <textarea
-          className="w-1/2 h-full border-2 border-gray-100 rounded-sm p-2"
+          className="w-1/2 h-full border-2 border-t-black border-l-black focus:outline-none rounded-sm p-2"
           placeholder="Create blog"
           value={content}
           name={content}
           onChange={(e) => setContent(e.currentTarget.value)}
         />
         <Markdown
-          className="w-1/2 h-full border-2 border-gray-100 rounded-sm text-justify text-sm p-2"
+          className="w-1/2 h-full bg-white border-2 border-t-black border-l-black rounded-sm text-justify text-sm p-2"
           remarkPlugins={[remarkGfm]}
           rehypePlugins={[rehypeRaw]}
           components={{
@@ -110,9 +113,9 @@ export default function Blog() {
       </div>
       <button
         type="submit"
-        className="w-full text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-sm mt-1 py-2"
+        className="w-full bg-transparent hover:bg-[#010081] hover:text-white hover:border-t-black hover:border-l-black hover:border-b-white hover:border-r-white border-2 border-t-white border-l-white border-b-black border-r-black rounded-sm mt-1 py-2"
       >
-        Send
+        Send &gt;
       </button>
     </form>
   );
