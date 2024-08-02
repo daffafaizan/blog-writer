@@ -7,6 +7,7 @@ import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import axios from "axios";
+import Auth from "./ui/auth";
 
 export default function Blog() {
   const url = `${process.env.NEXT_PUBLIC_API_URL}/posts`;
@@ -15,6 +16,8 @@ export default function Blog() {
   const [summary, setSummary] = useState("");
   const [tags, setTags] = useState([]);
   const [content, setContent] = useState("");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const handleTags = (e: any) => {
     let tags = e.currentTarget.value;
     setTags(tags.split(" "));
@@ -26,6 +29,18 @@ export default function Blog() {
     setTags([]);
     setContent("");
   };
+  const inputCheck = () => {
+    if (
+      title === "" ||
+      postAuthor === "" ||
+      summary === "" ||
+      tags.length === 0 ||
+      content === ""
+    ) {
+      return false;
+    }
+    return true;
+  };
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     const blogData = {
@@ -34,6 +49,8 @@ export default function Blog() {
       summary,
       tags,
       content,
+      username,
+      password,
     };
     const res = await axios.post(url, blogData);
     console.log(res);
@@ -111,12 +128,16 @@ export default function Blog() {
           {content}
         </Markdown>
       </div>
-      <button
-        type="submit"
-        className="w-full bg-transparent hover:bg-[#010081] hover:text-white hover:border-t-black hover:border-l-black hover:border-b-white hover:border-r-white border-2 border-t-white border-l-white border-b-black border-r-black rounded-sm mt-1 py-2"
-      >
-        Send &gt;
-      </button>
+      {inputCheck() ? (
+        <Auth setUsername={setUsername} setPassword={setPassword} />
+      ) : (
+        <button
+          disabled
+          className="w-full bg-transparent hover:bg-[#010081] hover:text-white hover:border-t-black hover:border-l-black hover:border-b-white hover:border-r-white border-2 border-t-white border-l-white border-b-black border-r-black rounded-sm mt-1 py-2"
+        >
+          Send &gt;
+        </button>
+      )}
     </form>
   );
 }
